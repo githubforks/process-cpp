@@ -1,12 +1,10 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
-export DPKG_GENSYMBOLS_CHECK_LEVEL=4
-
-include /usr/share/dpkg/default.mk
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
-	dh $@ --fail-missing
+	dh $@
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DCMAKE_CXX_FLAGS=-std=c++11
+	dh_auto_configure -- -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)

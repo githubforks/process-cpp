@@ -1,3 +1,10 @@
+process-cpp (2.0.0~git20140718-2) stretch; urgency=medium
+
+  * enable tests
+  * update policy to 4.0.0
+
+ -- Shengjing Zhu <i@zhsj.me>  Sat, 24 Jun 2017 14:43:49 +0800
+
 process-cpp (2.0.0~git20140718-1) unstable; urgency=medium
 
   * Release to debian

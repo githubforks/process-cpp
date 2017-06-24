@@ -1,29 +1,26 @@
 Source: process-cpp
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Shengjing Zhu <i@zhsj.me>
 Build-Depends: cmake,
-               debhelper (>= 9),
-               doxygen,
-               graphviz,
-               libboost-dev,
-               libboost-iostreams-dev,
-               libboost-system-dev,
-               libproperties-cpp-dev,
-               pkg-config,
-Standards-Version: 3.9.5
+ debhelper (>= 10),
+ doxygen,
+ graphviz,
+ googletest,
+ libboost-dev,
+ libboost-iostreams-dev,
+ libboost-system-dev,
+ libproperties-cpp-dev,
+ pkg-config,
+Standards-Version: 4.0.0
 Section: libs
 Homepage: https://launchpad.net/process-cpp
-# If you aren't a member of ~phablet-team but need to upload packaging changes,
-# just go ahead. ~phablet-team will notice and sync up the code again.
-Vcs-Bzr: https://code.launchpad.net/~phablet-team/content-hub/trunk
-Vcs-Browser: https://bazaar.launchpad.net/~phablet-team/process-cpp/trunk/files
+Vcs-Git: https://github.com/zhsj/process-cpp.git
+Vcs-Browser: https://github.com/zhsj/process-cpp
 
 Package: libprocess-cpp2
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends},
-Depends: ${misc:Depends},
-         ${shlibs:Depends},
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: C++11 library for handling processes - runtime library
  Process-cpp is a simple convenience library for handling processes in C++11.
  .
@@ -33,10 +30,10 @@ Package: libprocess-cpp-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Recommends: libprocess-cpp-doc,
-Depends: libprocess-cpp2 (= ${binary:Version}),
-         ${misc:Depends},
-         libproperties-cpp-dev,
+Depends: ${misc:Depends},
+ libprocess-cpp2 (= ${binary:Version}),
+ libproperties-cpp-dev
+Suggests: libprocess-cpp-doc
 Description: C++11 library for handling processes - dev headers and libraries
  Process-cpp is a simple convenience library for handling processes in C++11.
  .
@@ -47,6 +44,7 @@ Package: libprocess-cpp-doc
 Section: doc
 Architecture: all
 Depends: ${misc:Depends},
+ libjs-jquery
 Suggests: libprocess-cpp-dev,
 Description: Documentation files for libprocess-cpp-dev
  Process-cpp is a simple convenience library for handling processes in C++11.
